@@ -1,0 +1,50 @@
+
+<div class="w-75 mx-auto">
+    <h1 class="h6">Login Now: </h1>
+    <form [formGroup]="loginform" (ngSubmit)="submitlogin()">
+        @if (errmsg) {
+            <div class="alert alert-dark m-0 p-0 ">
+                <p class="p-0 m-0 "> {{errmsg}}</p>
+            </div>
+            }
+        <div class="my-3" >
+            <label for="">Email :</label>
+            <input type="email" formControlName="email" class="form-control">
+            @if (loginform.get('email')?.errors && loginform.get('email')?.touched) {
+                <div class="alert alert-dark p-0 m-0 ">
+                    @if (loginform.get('email')?.errors?.['required']) {
+                        <p class="p-1 m-0">Email is required</p>
+                    }
+                    @else if (loginform.get('email')?.errors?.['email']) {
+                        <p class="p-1 m-0">its not a valid Email  </p>
+                    }
+                </div>
+            }
+        </div>
+      
+        <div class="my-3">
+            <label for="">Password :</label>
+            <input type="text" formControlName="password" class="form-control">
+            @if (loginform.get('password')?.errors && loginform.get('password')?.touched) {
+                <div class="alert alert-dark p-0 m-0 ">
+                    @if (loginform.get('password')?.errors?.['required']) {
+                        <p class="p-1 m-0">password is required</p>
+                    }
+                    @else if (loginform.get('password')?.errors?.['pattern']) {
+                        <p class="p-1 m-0">its not a valid password  </p>
+                    }
+                </div>
+            }
+        </div>
+         
+        <button [disabled]="loginform.invalid" class=" btn bg-black text-white   mb-3 ms-auto  d-block ">
+            @if (isloading) {
+            <span class=""><i class="fa fa-spin fa-spinner "></i> </span>
+
+            }
+            @else () { 
+                <span>Login Now</span>
+            }
+        </button>
+    </form>
+    </div>

@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&family=Montserrat:wght@900&display=swap');
+:rout{
+    --main-color:#0aad0a;
+    --light-color:#f0f3f2;
+
+--font-family:"Encode Sans Expanded",sans-serif;
+}
+/* body{
+    font-family: var(--font-family);
+} */
+ .text-main{
+    color: var(--main-color) !important;
+ }
+ .bg-main-light{
+    color: var(--light-color) !important;
+ }
+ .bg-main{
+    background-color: #0aad0a;
+ }
+ .cursor-pointer{
+    cursor: pointer;
+ }

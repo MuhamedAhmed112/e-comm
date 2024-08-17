@@ -1,0 +1,21 @@
+<body class="bg-info-subtle">
+    <div class="container ">
+        <div class="row my-4">
+            @for (brand of brandsListt ; track $index) {
+            <div class="col-md-10   mx-auto">
+                <div class="bg-dark d-flex justify-content-center align-items-center my-2 text-white">
+                    <img class="" [src]="brand.image " alt="">
+                    <div class="mx-3  ">
+                        <h3><span class="text-danger">id : </span>{{brand._id}}</h3>
+                        <h3><span class="text-danger"> Name : </span>{{brand.name}}</h3>
+                        <h3><span class="text-danger"> slug : </span>{{brand.slug}}</h3>
+                        <h3><span class="text-danger">createdAt : </span> {{brand.createdAt}}</h3>
+                        <h3><span class="text-danger">Updated At : </span> {{brand.updatedAt}}</h3>
+                    </div>
+                </div>
+            </div>
+            }
+
+        </div>
+    </div>
+</body>
