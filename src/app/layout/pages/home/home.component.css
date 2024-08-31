@@ -1,0 +1,24 @@
+.starcolor{
+    color: yellow;
+}
+.product{
+transition: all 0.5s;
+}
+.product:hover{
+    border-radius: 5px;
+    border: solid 1px #0aad0a;
+    box-shadow: 0 0 10px #11bd1168 ;
+}
+.btn{
+    background-color: #0aad0a;
+}
+.product button{
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.5s;
+
+}
+.product:hover button{
+    opacity: 1;
+    transform: translateY(0%);
+}

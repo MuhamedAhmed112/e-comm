@@ -14,8 +14,14 @@ export class CategoriesComponent {
   constructor(private _BrandsService:BrandsService){}
   ngOnInit(): void {
     this._BrandsService.getcategori().subscribe( ( res)=> {
-      this.categorilist  = res.data; 
-    })
+      this.categorilist  = res.data;})
+
+
+      if(typeof localStorage!=='undefined')
+        localStorage.setItem('currentPage','/categories' ) 
+    }
       
-    } 
+      
+       
+
 }

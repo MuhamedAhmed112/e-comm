@@ -1,0 +1,144 @@
+<div class="w-75 mx-auto">
+    @if (emailformflag) {
+    <h2 class=" my-3">Email Confirm :</h2>
+    <form action="" [formGroup]="emailForm" (ngSubmit)="submitemailform()">
+        @if(errmasg){
+        <div class="m-0 p-0 mt-3 alert alert-dark      ">
+            <p class="p-1 m-0">{{errmasg}}</p>
+        </div>
+        }
+
+        <label for="">Email</label>
+        <input formControlName="email" type="email" class="rounded-2 w-100 p-1 ">
+        @if(emailForm.get('email')?.errors && emailForm.get('email')?.touched){
+
+        <div class="m-0 p-0 alert alert-dark">
+            @if(emailForm.get('email')?.errors?.['required']){
+            <p class="p-1 m-0 ">Email is required </p>
+
+            }
+            @else if (emailForm.get('email')?.errors?.['email']) {
+            <p class="p-1 m-0 ">Email is not valid </p>
+
+            }
+
+        </div>
+        }
+
+        <button [disabled]="emailForm.invalid" class="btn bg-black d-block text-white my-2 ms-auto mb-3 ">
+            @if (isloading) {
+            <span class="fa fa-spinner fa-spin"></span>
+
+            }
+            @else(){
+            <span>Send Email</span>
+
+            }
+        </button>
+    </form>
+    }
+    <!-- ============================== code form ============================== -->
+    @if (codeformflag) {
+        <h2 class=" my-3">Code Confirm :</h2>
+        <form action="" [formGroup]="codeForm" (ngSubmit)="submitCodeform()">
+            @if(errmasg){
+            <div class="m-0 p-0 mt-3 alert alert-dark      ">
+                <p class="p-1 m-0">{{errmasg}}</p>
+            </div>
+            }
+    
+            <label for="">Code :</label>
+            <input formControlName="resetcode" type="text" class="rounded-2 w-100 p-1 ">
+            @if(codeForm.get('resetcode')?.errors && codeForm.get('resetcode')?.touched){
+    
+            <div class="m-0 p-0 alert alert-dark">
+                @if( codeForm.get('resetcode')?.errors?.['required']){
+                <p class="p-1 m-0 ">resetcode is required </p>
+    
+                }
+                @else if (codeForm.get('resetcode')?.errors?.['pattern']) {
+                <p class="p-1 m-0 ">Code is not valid </p>
+    
+                }
+    
+            </div>
+            }
+    
+            <button [disabled]="codeForm.invalid" class="btn bg-black d-block text-white my-2 ms-auto mb-3 ">
+                @if (isloading) {
+                <span class="fa fa-spinner fa-spin"></span>
+    
+                }
+                @else(){
+                <span>Send Code</span>
+    
+                }
+            </button>
+        </form>
+        }
+    @if (newpassformflag) {
+    <h2 class=" my-3"> Set a New Password :</h2>
+    <form action="" [formGroup]="newpassForm" (ngSubmit)="submitnewpassform()">
+        @if(errmasg){
+        <div class="m-0 p-0 mt-3 alert alert-dark      ">
+            <p class="p-1 m-0">{{errmasg}}</p>
+        </div>
+        }
+        <div class="my-3">
+            <label for="">Email :</label>
+            <input formControlName="email" type="email" class="rounded-2 w-100 p-1 ">
+
+            @if(newpassForm.get('email')?.errors && newpassForm.get('email')?.touched){
+
+            <div class="m-0 p-0 alert alert-dark">
+                @if (newpassForm.get('email')?.errors?.['required']) {
+                    <p class="p-1 m-0 ">Email is required </p>
+
+                }
+                @else if (newpassForm.get('email')?.errors?.['email']) {
+                    <p class="p-1 m-0 ">Email is not valid </p>
+
+                }
+ 
+
+ 
+            </div>
+            }
+        </div>
+        <div class="my-3">
+            <label for="">NewPassword :</label>
+            <input formControlName="newPassword" type="text" class="rounded-2 w-100 p-1 ">
+
+            @if(newpassForm.get('newPassword')?.errors && newpassForm.get('newPassword')?.touched){
+
+            <div class="m-0 p-0 alert alert-dark">
+                @if (newpassForm.get('newPassword')?.errors?.['required']) {
+                    <p class="p-1 m-0 ">Password is required </p>
+
+                }
+                @else if (newpassForm.get('newPassword')?.errors?.['pattern']) {
+                    <p class="p-1 m-0 ">Password is not valid </p>
+
+                }
+ 
+
+ 
+            </div>
+            }
+        </div>
+       
+
+
+        <button [disabled]="newpassForm.invalid" class="btn bg-black d-block text-white my-2 ms-auto mb-3 ">
+            @if (isloading) {
+            <span class="fa fa-spinner fa-spin"></span>
+
+            }
+            @else(){
+            <span> Submit</span>
+
+            }
+        </button>
+    </form>
+    }
+</div>
