@@ -10,11 +10,13 @@
         <div class="collapse navbar-collapse justify-content-between   " id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 
-                    
-                    <a class="nav-link px-2" routerLink="home" routerLinkActive="bg-main text-white rounded-4">Home</a>
-                    <a class="nav-link px-2" routerLink="product" routerLinkActive="bg-main text-white rounded-4">Products</a>
-                    <a class="nav-link px-2" routerLink="categories" routerLinkActive="bg-main text-white rounded-4">Categories</a>
-                    <a class="nav-link px-2" routerLink="brands" routerLinkActive="bg-main text-white rounded-4">Brands</a>
+                    @if (islogin == true) {
+                        <a class="nav-link px-2" routerLink="home" routerLinkActive="bg-main text-white rounded-4">Home</a>
+                        <a class="nav-link px-2" routerLink="product" routerLinkActive="bg-main text-white rounded-4">Products</a>
+                        <a class="nav-link px-2" routerLink="categories" routerLinkActive="bg-main text-white rounded-4">Categories</a>
+                        <a class="nav-link px-2" routerLink="brands" routerLinkActive="bg-main text-white rounded-4">Brands</a>
+                        
+                    }
                     
             
             </div>
@@ -26,11 +28,15 @@
                 <i class="fa-brands fa-linkedin"></i>
                 <i class="fa-brands fa-youtube"></i>
             
-                    
-                <a class="nav-link "  routerLinkActive="bg-main text-white rounded-4" routerLink="register">Register</a>
+                    @if (islogin ==false) {
+                        <a class="nav-link "  routerLinkActive="bg-main text-white rounded-4" routerLink="register">Register</a>
                 <a class="nav-link "  routerLinkActive="bg-main text-white rounded-4" routerLink="login">Login </a>
+                    }
+                @else(){
+                    <a (click)="_AuthentictionService.logOut()" class="nav-link cursor-pointer "  >Logout </a>
+
+                }
               
-                <a class="nav-link cursor-pointer "  >Logout </a>
 
              
 

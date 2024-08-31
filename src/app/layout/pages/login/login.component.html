@@ -24,7 +24,7 @@
       
         <div class="my-3">
             <label for="">Password :</label>
-            <input type="text" formControlName="password" class="form-control">
+            <input type="password" formControlName="password" class="form-control">
             @if (loginform.get('password')?.errors && loginform.get('password')?.touched) {
                 <div class="alert alert-dark p-0 m-0 ">
                     @if (loginform.get('password')?.errors?.['required']) {
@@ -37,7 +37,9 @@
             }
         </div>
          
-        <button [disabled]="loginform.invalid" class=" btn bg-black text-white   mb-3 ms-auto  d-block ">
+       <div class="d-flex justify-content-between ">
+         <a routerLink="/forgetpassword" class="    mt-2 ms-auto">Forget Password</a>
+        <button [disabled]="loginform.invalid" class=" btn bg-black text-white   mb-3     ">
             @if (isloading) {
             <span class=""><i class="fa fa-spin fa-spinner "></i> </span>
 
@@ -46,5 +48,6 @@
                 <span>Login Now</span>
             }
         </button>
+       </div>
     </form>
     </div>

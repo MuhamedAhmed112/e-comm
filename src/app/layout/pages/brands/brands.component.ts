@@ -13,7 +13,7 @@ import { brands } from '../../../interfaces/brands';
   templateUrl: './brands.component.html',
   styleUrl: './brands.component.css'
 })
-export class BrandsComponent  implements OnInit {
+export class BrandsComponent  implements OnInit { 
   brandsListt!: brands[];
   
 constructor(private _BrandsService:BrandsService){}
@@ -22,6 +22,9 @@ ngOnInit(): void {
     this.brandsListt  = res.data; 
   })
     
+
+  if(typeof localStorage!=='undefined')
+    localStorage.setItem('currentPage','/categories' ) 
   } 
 }
   
